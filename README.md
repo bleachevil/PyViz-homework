@@ -216,3 +216,50 @@ total_top_data.hvplot.bar(title="Top 10 Expensive Neighbourhoods in Toronto",xla
 ```
 ### Graph
 ![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/topdata2.png?raw=true)
+
+
+## Neighbourhood Map
+### Load Location Data¶
+```
+file_path = Path("Data/toronto_neighbourhoods_coordinates.csv")
+df_neighbourhood_locations = pd.read_csv(file_path)
+df_neighbourhood_locations.head()
+```
+### Result of df_neighbourhood_locations
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/mapdata1.png?raw=true)
+
+### Calculate the mean values for each neighborhood
+```
+top_data = to_data.reset_index().groupby('neighbourhood').mean()
+t_data = top_data.reset_index().drop(columns=['year'])
+t_data
+```
+### Result of t_data
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/mapdata2.png?raw=true)
+
+### Join the average values with the neighbourhood locations
+```
+join_data = df_neighbourhood_locations.merge(t_data)
+join_data
+```
+
+### Result of join_data
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/mapdata3.png?raw=true)
+
+### Mapbox Visualization
+```
+px.set_mapbox_access_token(map_box_api)
+map_1 = px.scatter_mapbox(
+    join_data,
+    color="average_house_value",
+    hover_name="neighbourhood",
+    hover_data=["average_house_value","shelter_costs_owned","shelter_costs_rented","single_detached_house","apartment_five_storeys_plus","movable_dwelling","semi_detached_house","row_house","duplex","apartment_five_storeys_less","other_house"],
+    lat="lat",
+    lon="lon",
+)
+map_1.show()
+```
+
+### Graph
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/mapdata4.png?raw=true)
+
