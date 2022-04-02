@@ -101,3 +101,13 @@ create_bar_chart(group_data5,"Dwelling Types in Toronto in 2016","2016","Dwellin
 ![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/data6.png?raw=true)
 
 
+## Average Monthly Shelter Costs in Toronto Per Year
+
+### Data - Average House Value per Year
+```
+avg_data_house = avg_data[['average_house_value']]
+avg_data_house
+```
+
+### Result of avg_data_house
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata1.png?raw=true)
