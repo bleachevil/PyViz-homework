@@ -110,4 +110,4 @@ avg_data_house
 ```
 
 ### Result of avg_data_house
-![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/adata1.png?raw=true)
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata1.png?raw=true)
