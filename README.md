@@ -42,6 +42,41 @@ group_data
 
 ![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/data2.png?raw=true)
 
+### Save the dataframe as a csv file
+```
+group_data.to_csv("toronto_neighbourhoods_census_data_grouped.csv")
+```
+### Result is updated in the repository
+
+### create_bar_chart function
+```
+def create_bar_chart(data, title, xlabel, ylabel, color):
+        fig = data.hvplot.bar(title=title,xlabel=xlabel, ylabel=ylabel, color=color,rot=90,height=500,width=500).opts(yformatter="%.0f")
+        return fig
+```
+
+### Bar chart for 2001 with red color
+```
+group_data1= group_data.T
+group_data2 = group_data1.iloc[:,[0]]
+group_data2
+create_bar_chart(group_data2,"Dwelling Types in Toronto in 2001","2001","Dwelling Type Units","red")
+```
+### Resul of bar chart for 2001
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/data3.png?raw=true)
+
+
+
+### Bar chart for 2006 with blue color
+```
+group_data1= group_data.T
+group_data3 = group_data1.iloc[:,[1]]
+group_data3
+create_bar_chart(group_data3,"Dwelling Types in Toronto in 2006","2006","Dwelling Type Units","blue")
+```
+### Resul of bar chart for 2006
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/data4.png?raw=true)
+
 
 
 
