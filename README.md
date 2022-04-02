@@ -194,3 +194,25 @@ to_data.hvplot.bar(stacked=False, height=500,rot=90,groupby='neighbourhood',xlab
 
 ### Graph
 ![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata10.png?raw=true)
+
+
+## The Top 10 Most Expensive Neighbourhoods
+
+### Getting the data from the top 10 expensive neighbourhoods
+
+```
+top_data = to_data.reset_index().groupby('neighbourhood').mean()
+top_data.sort_values(by=['average_house_value'], ascending=False).nlargest(10,'average_house_value')
+total_top_data = top_data[['average_house_value']].sort_values(by=['average_house_value'], ascending=False).nlargest(10,'average_house_value')
+total_top_data
+```
+
+### Result of total_top_data
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/topdata1.png?raw=true)
+
+### Plotting the data from the top 10 expensive neighbourhoods
+```
+total_top_data.hvplot.bar(title="Top 10 Expensive Neighbourhoods in Toronto",xlabel="Neighbourhood", ylabel="Avg. House Value", color="blue",rot=90,height=500,width=500).opts(yformatter="%.0f")
+```
+### Graph
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/topdata2.png?raw=true)
