@@ -103,11 +103,25 @@ create_bar_chart(group_data5,"Dwelling Types in Toronto in 2016","2016","Dwellin
 
 ## Average Monthly Shelter Costs in Toronto Per Year
 
-### Data - Average House Value per Year
+### Data - Calculate the average monthly shelter costs for owned and rented dwellings
 ```
-avg_data_house = avg_data[['average_house_value']]
-avg_data_house
+avg_data = to_data.groupby(to_data.index).mean()
+avg_data1 = avg_data[['shelter_costs_owned','shelter_costs_rented']]
+avg_data1
 ```
 
 ### Result of avg_data_house
 ![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata1.png?raw=true)
+
+### create_line_chart function
+```
+def create_line_chart(data, title, xlabel, ylabel, color):
+        fig = data.hvplot.line(title=title,xlabel=xlabel, ylabel=ylabel, color=color,rot=90,height=500).opts(yformatter="%.0f")
+        return fig
+```
+
+### Graph - Line chart for owned dwellings
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata2.png?raw=true)
+
+### Graph - Line chart for rental dwellings
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata3.png?raw=true)
