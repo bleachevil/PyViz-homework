@@ -172,3 +172,25 @@ n_data.hvplot.line(x='year', y='average_house_value', width=600, groupby='neighb
 
 ### Result
 ![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata8.png?raw=true)
+
+
+## Number of Dwelling Types per Year
+
+### Fetch the data of all dwelling types per year
+```
+to_data.head()
+to_data.drop(columns = ['average_house_value','shelter_costs_owned','shelter_costs_rented'],inplace=True)
+to_data
+```
+
+### Result of to_data
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata9.png?raw=true)
+
+
+### Use hvplot to create an interactive bar chart of the number of dwelling types per neighbourhood
+```
+to_data.hvplot.bar(stacked=False, height=500,rot=90,groupby='neighbourhood',xlabel = "year", ylabel = "Dwelling Type Units").opts(yformatter="%.0f")
+```
+
+### Graph
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata10.png?raw=true)
