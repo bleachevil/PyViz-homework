@@ -129,6 +129,24 @@ def create_line_chart(data, title, xlabel, ylabel, color):
 
 ## Average House Value by Neighbourhood¶
 
+### Calculate the average house value per year
+```
+avg_data_house = avg_data[['average_house_value']]
+avg_data_house
+```
+
+### Result of avg_data_house
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata4.png?raw=true)
+
+### Plot the average house value per year as a line chart
+```
+create_line_chart(avg_data_house,"Average House Value in Toronto","year","Avg House Value","blue")
+```
+### Graph
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata5.png?raw=true)
+
+## Average House Value by Neighbourhood
+
 ### Create a new DataFrame with the mean house values by neighbourhood per year
 ```
 to_data.reset_index(inplace=True)
@@ -136,7 +154,7 @@ to_data.head()
 ```
 
 ### Result of to_data
-![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata4.png?raw=true)
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata6.png?raw=true)
 
 ### Select data for graph
 ```
@@ -145,4 +163,12 @@ n_data
 ```
 
 ### Result of n_data
-![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata5.png?raw=true)
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata7.png?raw=true)
+
+### Use hvplot to create an interactive line chart of the average house value per neighbourhood
+```
+n_data.hvplot.line(x='year', y='average_house_value', width=600, groupby='neighbourhood').opts(yformatter="%.0f")
+```
+
+### Result
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata8.png?raw=true)
