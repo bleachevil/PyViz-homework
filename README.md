@@ -125,3 +125,24 @@ def create_line_chart(data, title, xlabel, ylabel, color):
 
 ### Graph - Line chart for rental dwellings
 ![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata3.png?raw=true)
+
+
+## Average House Value by Neighbourhood¶
+
+### Create a new DataFrame with the mean house values by neighbourhood per year
+```
+to_data.reset_index(inplace=True)
+to_data.head()
+```
+
+### Result of to_data
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata4.png?raw=true)
+
+### Select data for graph
+```
+n_data = to_data[['year','neighbourhood','average_house_value']]
+n_data
+```
+
+### Result of n_data
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/avgdata5.png?raw=true)
