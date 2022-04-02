@@ -79,6 +79,25 @@ create_bar_chart(group_data3,"Dwelling Types in Toronto in 2006","2006","Dwellin
 
 
 
+### Bar chart for 2011 with orange color
+```
+group_data1= group_data.T
+group_data4 = group_data1.iloc[:,[2]]
+group_data4
+create_bar_chart(group_data4,"Dwelling Types in Toronto in 2011","2011","Dwelling Type Units","orange")
+```
+### Resul of bar chart for 2011
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/data5.png?raw=true)
 
+
+### Bar chart for 2016 with pink color
+```
+group_data1= group_data.T
+group_data5 = group_data1.iloc[:,[3]]
+group_data5
+create_bar_chart(group_data5,"Dwelling Types in Toronto in 2016","2016","Dwelling Type Units","pink")
+```
+### Resul of bar chart for 2016
+![](https://github.com/bleachevil/PyViz-homework/blob/main/Image/data6.png?raw=true)
 
 
